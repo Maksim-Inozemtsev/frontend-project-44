@@ -1,6 +1,10 @@
 import readlineSync from 'readline-sync';
 
-const startRound = () => {
+export const task = () => {
+  console.log('What is the result of the expression?');
+};
+
+export const startRound = () => {
   const number1 = Math.round(Math.random() * 100);
   const number2 = Math.round(Math.random() * 100);
   const numberOfOperator = Math.round(Math.random() * 100);
@@ -23,21 +27,3 @@ const startRound = () => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   return false;
 };
-
-const startGame = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('What is the result of the expression?');
-  for (let i = 0; i < 3; i += 1) {
-    const isCorrect = startRound();
-
-    if (!isCorrect) {
-      console.log(`Let's try again, ${userName}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${userName}!`);
-};
-
-export default startGame;
