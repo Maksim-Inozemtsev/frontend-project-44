@@ -1,12 +1,22 @@
 import readlineSync from 'readline-sync';
 
 const startRound = () => {
-  const number = Math.round(Math.random() * 100);
-  console.log(`Question: ${number}`);
+  const number1 = Math.round(Math.random() * 100);
+  const number2 = Math.round(Math.random() * 100);
+  const numberOfOperator = Math.round(Math.random() * 100);
+  let correctAnswer;
+  if (numberOfOperator <= 33 && (number1 <= 10 || number2 <= 10)) {
+    correctAnswer = number1 * number2;
+    console.log(`Question: ${number1} * ${number2}`);
+  } else if (numberOfOperator > 66) {
+    correctAnswer = number1 + number2;
+    console.log(`Question: ${number1} + ${number2}`);
+  } else {
+    correctAnswer = number1 - number2;
+    console.log(`Question: ${number1} - ${number2}`);
+  }
   const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = (number % 2 === 0) ? 'yes' : 'no';
-
-  if (answer.toLowerCase() === correctAnswer) {
+  if (Number(answer) === correctAnswer) {
     console.log('Correct!');
     return true;
   }
@@ -18,7 +28,7 @@ const startGame = () => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
     const isCorrect = startRound();
 
