@@ -5,3 +5,5 @@
 https://asciinema.org/connect/112f5384-026e-43d3-b6e9-0c4b3e0daa4f //демонстрация brain-even
 
 https://asciinema.org/a/H7lAzSHE2JcfeXFc6ieiVTOb7 //демонстрация brain-calc
+
+https://asciinema.org/a/Da5tSt0sVhjJoEhAIUOwsSDnY //демонстрация brain-gcd
