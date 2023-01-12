@@ -6,6 +6,8 @@ import * as calcGame from './games/calc.js';
 
 import * as gcdGame from './games/gcd.js';
 
+import * as progressionGame from './games/progression.js';
+
 const startGame = (gameNumber) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
@@ -19,6 +21,9 @@ const startGame = (gameNumber) => {
       break;
     case '3':
       gcdGame.task();
+      break;
+    case '4':
+      progressionGame.task();
       break;
     default:
       break;
@@ -34,6 +39,9 @@ const startGame = (gameNumber) => {
         break;
       case '3':
         isCorrect = gcdGame.startRound();
+        break;
+      case '4':
+        isCorrect = progressionGame.startRound();
         break;
       default:
         break;
