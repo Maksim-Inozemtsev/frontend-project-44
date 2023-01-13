@@ -8,6 +8,8 @@ import * as gcdGame from './games/gcd.js';
 
 import * as progressionGame from './games/progression.js';
 
+import * as primeGame from './games/prime.js';
+
 const startGame = (gameNumber) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
@@ -24,6 +26,9 @@ const startGame = (gameNumber) => {
       break;
     case '4':
       progressionGame.task();
+      break;
+    case '5':
+      primeGame.task();
       break;
     default:
       break;
@@ -42,6 +47,9 @@ const startGame = (gameNumber) => {
         break;
       case '4':
         isCorrect = progressionGame.startRound();
+        break;
+      case '5':
+        isCorrect = primeGame.startRound();
         break;
       default:
         break;

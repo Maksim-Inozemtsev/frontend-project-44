@@ -9,3 +9,5 @@ https://asciinema.org/a/H7lAzSHE2JcfeXFc6ieiVTOb7 //демонстрация bra
 https://asciinema.org/a/Da5tSt0sVhjJoEhAIUOwsSDnY //демонстрация brain-gcd
 
 https://asciinema.org/a/sNNShk5fU67FsPKQU5URsdQOX //демонстрация brain-progression
+
+https://asciinema.org/a/c1Azb4dXIce0K1xoX1Hklxr8e //демонстрация brain-prime
