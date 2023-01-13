@@ -12,7 +12,7 @@ export const startRound = () => {
   for (let i = 1, number = startNumber; i <= numbersCount; i += 1, number += sequenceStep) {
     sequence.push(number);
   }
-  const indexOfMissingNumber = Math.round(Math.random() * (sequence.length - 1) + 1);
+  const indexOfMissingNumber = Math.round(Math.random() * (sequence.length - 1));
   const correctAnswer = sequence[indexOfMissingNumber];
   const shownSequense = sequence;
   shownSequense[indexOfMissingNumber] = '..';
