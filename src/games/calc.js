@@ -1,13 +1,15 @@
 import readlineSync from 'readline-sync';
 
-export const task = () => {
-  console.log('What is the result of the expression?');
-};
+import getRandomNumber from '../rngen.js';
 
-export const startRound = () => {
-  const number1 = Math.round(Math.random() * 100);
-  const number2 = Math.round(Math.random() * 100);
-  const numberOfOperator = Math.round(Math.random() * 100);
+import startGame from '../index.js';
+
+const task = 'What is the result of the expression?';
+
+const getRoundData = () => {
+  const number1 = getRandomNumber();
+  const number2 = getRandomNumber();
+  const numberOfOperator = getRandomNumber();
   let correctAnswer;
   if (numberOfOperator <= 33 && (number1 <= 10 || number2 <= 10)) {
     correctAnswer = number1 * number2;
@@ -27,3 +29,7 @@ export const startRound = () => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   return false;
 };
+
+const startCalcGame = () => startGame(getRoundData, task);
+
+export default startCalcGame;

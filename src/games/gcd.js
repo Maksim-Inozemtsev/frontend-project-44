@@ -1,14 +1,16 @@
 import readlineSync from 'readline-sync';
 
-export const task = () => {
-  console.log('Find the greatest common divisor of given numbers.');
-};
+import getRandomNumber from '../rngen.js';
 
-export const startRound = () => {
-  const number1 = Math.round(Math.random() * 100);
-  const number2 = Math.round(Math.random() * 100);
+import startGame from '../index.js';
+
+const task = 'Find the greatest common divisor of given numbers.';
+
+const getRoundData = () => {
+  const number1 = getRandomNumber();
+  const number2 = getRandomNumber();
   if (number1 === 0 && number2 === 0) {
-    startRound();
+    getRoundData();
   }
   let correctAnswer;
   const minNumber = Math.min(number1, number2);
@@ -32,3 +34,7 @@ export const startRound = () => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   return false;
 };
+
+const startGcdGame = () => startGame(getRoundData, task);
+
+export default startGcdGame;

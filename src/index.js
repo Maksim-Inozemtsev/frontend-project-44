@@ -1,59 +1,13 @@
 import readlineSync from 'readline-sync';
 
-import * as evenGame from './games/even.js';
-
-import * as calcGame from './games/calc.js';
-
-import * as gcdGame from './games/gcd.js';
-
-import * as progressionGame from './games/progression.js';
-
-import * as primeGame from './games/prime.js';
-
-const startGame = (gameNumber) => {
+const startGame = (getRoundData, task) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  switch (gameNumber) {
-    case '1':
-      evenGame.task();
-      break;
-    case '2':
-      calcGame.task();
-      break;
-    case '3':
-      gcdGame.task();
-      break;
-    case '4':
-      progressionGame.task();
-      break;
-    case '5':
-      primeGame.task();
-      break;
-    default:
-      break;
-  }
+  console.log(task);
   let isCorrect;
   for (let i = 0; i < 3; i += 1) {
-    switch (gameNumber) {
-      case '1':
-        isCorrect = evenGame.startRound();
-        break;
-      case '2':
-        isCorrect = calcGame.startRound();
-        break;
-      case '3':
-        isCorrect = gcdGame.startRound();
-        break;
-      case '4':
-        isCorrect = progressionGame.startRound();
-        break;
-      case '5':
-        isCorrect = primeGame.startRound();
-        break;
-      default:
-        break;
-    }
+    isCorrect = getRoundData();
     if (!isCorrect) {
       console.log(`Let's try again, ${userName}!`);
       return;
