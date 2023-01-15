@@ -1,33 +1,31 @@
-import readlineSync from 'readline-sync';
-
-import getRandomNumber from '../rngen.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 import startGame from '../index.js';
 
 const task = 'What is the result of the expression?';
 
+const calculate = (num1, num2, op) => {
+  if (op === '+') {
+    return num1 + num2;
+  } if (op === '-') {
+    return num1 - num2;
+  }
+  return num1 * num2;
+};
+
 const getRoundData = () => {
   const number1 = getRandomNumber();
   const number2 = getRandomNumber();
-  const numberOfOperator = getRandomNumber();
-  let correctAnswer;
-  if (numberOfOperator <= 33 && (number1 <= 10 || number2 <= 10)) {
-    correctAnswer = number1 * number2;
-    console.log(`Question: ${number1} * ${number2}`);
-  } else if (numberOfOperator > 66) {
-    correctAnswer = number1 + number2;
-    console.log(`Question: ${number1} + ${number2}`);
+  const operators = ['+', '-', '*'];
+  let operator;
+  if (number1 > 10 && number2 > 10) {
+    operator = operators[getRandomNumber(0, 1)];
   } else {
-    correctAnswer = number1 - number2;
-    console.log(`Question: ${number1} - ${number2}`);
+    operator = operators[getRandomNumber(0, 2)];
   }
-  const answer = readlineSync.question('Your answer: ');
-  if (Number(answer) === correctAnswer) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  return false;
+  const correctAnswer = calculate(number1, number2, operator);
+  const question = `Question: ${number1} ${operator} ${number2}`;
+  return [question, correctAnswer];
 };
 
 const startCalcGame = () => startGame(getRoundData, task);

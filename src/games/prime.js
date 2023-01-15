@@ -1,6 +1,4 @@
-import readlineSync from 'readline-sync';
-
-import getRandomNumber from '../rngen.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 import startGame from '../index.js';
 
@@ -20,16 +18,9 @@ const isPrime = (number) => {
 
 const getRoundData = () => {
   const number = getRandomNumber();
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
+  const question = `Question: ${number}`;
   const correctAnswer = (isPrime(number)) ? 'yes' : 'no';
-
-  if (answer.toLowerCase() === correctAnswer) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  return false;
+  return [question, correctAnswer];
 };
 
 const startPrimeGame = () => startGame(getRoundData, task);

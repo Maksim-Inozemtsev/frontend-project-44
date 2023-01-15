@@ -5,13 +5,16 @@ const startGame = (getRoundData, task) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(task);
-  let isCorrect;
   for (let i = 0; i < 3; i += 1) {
-    isCorrect = getRoundData();
-    if (!isCorrect) {
+    const [question, correctAnswer] = getRoundData();
+    console.log(question);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer.toLowerCase() !== `${correctAnswer}`) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
+    console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
 };
