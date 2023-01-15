@@ -12,11 +12,8 @@ const findGcd = (num1, num2) => {
 };
 
 const getRoundData = () => {
-  const number1 = getRandomNumber();
-  const number2 = getRandomNumber();
-  if (number1 === 0 && number2 === 0) {
-    getRoundData();
-  }
+  const number1 = getRandomNumber(1);
+  const number2 = getRandomNumber(1);
   const correctAnswer = findGcd(number1, number2);
   const question = `Question: ${number1} ${number2}`;
   return [question, correctAnswer];
